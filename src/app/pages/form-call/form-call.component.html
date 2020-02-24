@@ -34,11 +34,8 @@
           <div class="form-group">
             <label for="plan"> Plano</label>
             <select class="form-control" id="plan">
-              <option>011</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+                <option>Selecione...</option>
+                <option *ngFor="let plan of plans" name="plan.id" [value]="plan.id" >{{plan.name}}</option>
             </select>
           </div>
   
