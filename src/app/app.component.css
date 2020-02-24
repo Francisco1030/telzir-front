@@ -1,29 +1,60 @@
 .card {
-    width: 98%;
-    margin: 10% 0 5%;
-    border-radius: 10px;
+  width: 98%;
+  margin: 10% 0 5%;
+  border-radius: 10px;
 }
 
 .card img {
-    width: 280px;
-    margin: auto;
-    margin-top: 15%;
+  width: 230px;
+  margin: 10% auto 5% auto;
 }
 
-input, select {
-    border-radius: 20px;
-    background-color: #d6d6d6;
+label {
+  color: #666666;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+input,
+select {
+  border-radius: 20px;
+  background-color: #d6d6d6;
+  height: 50px;
+  font-size: 17px;
+  margin: 0 0 2%;
 }
 
 .btn {
-    width: 100%;
-    border-radius: 20px;
-    background-color: #125fae;
-    border-color: #125fae;
-    margin: 4% 0 5%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #125fae;
+  border-color: #125fae;
+  height: 50px;
+  margin: 4% 0 5%;
 }
 
 .btn:hover {
-    background-color: #292929;
-    border-color: #292929;
+  background-color: #292929;
+  border-color: #292929;
+}
+
+@media screen and (min-width: 360px) {
+}
+
+@media screen and (min-width: 480px) {
+    .card img {
+        width: 320px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 960px) {
+    .card img {
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
 }
