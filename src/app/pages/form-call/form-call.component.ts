@@ -12,31 +12,14 @@ import { Call } from 'src/app/models/call';
 })
 export class FormCallComponent implements OnInit {
   @Input() call: Call = <Call>{};
-  //@Output() outputCall: EventEmitter<Call> = new EventEmitter();
 
   plans: Plan[];
-  // form: FormGroup;
 
   constructor(private planService: PlanService, private formBuilder: FormBuilder) {
     this.getAllPlans();
   }
 
-  ngOnInit() {
-
-    // this.form = new FormGroup({
-    //   source: new FormControl(null),
-    //   destiny: new FormControl(null),
-    //   time: new FormControl(null),
-    //   plan: new FormControl(null),
-    // });
-
-    // this.form = this.formBuilder.group({
-    //   source: ['Selecione'],
-    //   destiny: ['Selecione'],
-    //   time: [null],
-    //   plan: ['Selecione'],
-    // });
-  }
+  ngOnInit() {}
 
   getAllPlans() {
     this.planService.findAll().subscribe((plans: Plan[]) => {
