@@ -3,4 +3,5 @@ export interface Plan {
     name: string;
     timeLimit: number;
     totalPrice: number;
+    plan: string;
 }

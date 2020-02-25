@@ -12,10 +12,10 @@ import { Call } from 'src/app/models/call';
 })
 export class FormCallComponent implements OnInit {
   @Input() call: Call = <Call>{};
-  @Output() outputCall: EventEmitter<Call> = new EventEmitter();
+  //@Output() outputCall: EventEmitter<Call> = new EventEmitter();
 
   plans: Plan[];
-  form: FormGroup;
+  // form: FormGroup;
 
   constructor(private planService: PlanService, private formBuilder: FormBuilder) {
     this.getAllPlans();
@@ -30,14 +30,12 @@ export class FormCallComponent implements OnInit {
     //   plan: new FormControl(null),
     // });
 
-    this.form = this.formBuilder.group({
-      source: ['Selecione'],
-      destiny: ['Selecione'],
-      time: [null],
-      plan: ['Selecione'],
-    });
-
-    console.log(this.form.value);
+    // this.form = this.formBuilder.group({
+    //   source: ['Selecione'],
+    //   destiny: ['Selecione'],
+    //   time: [null],
+    //   plan: ['Selecione'],
+    // });
   }
 
   getAllPlans() {

@@ -37,6 +37,12 @@
     background-color: #292929;
     border-color: #292929;
   }
+
+  .text-danger {
+    margin-top: -10px;
+    font-size: 17px;
+    font-weight: 400;
+  }
   
   @media screen and (min-width: 360px) {
   }
