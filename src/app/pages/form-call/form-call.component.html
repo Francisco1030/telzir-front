@@ -9,12 +9,12 @@
                 <div class="form-group">
                     <label for="source"> Origem</label>
                     <select class="form-control" [(ngModel)]="call.source" #source="ngModel" name="source" id="source" 
-                    [class.is-invalid]="!source.valid && source.touched" required>
+                        (change)="findDestiny($event)" [class.is-invalid]="!source.valid && source.touched" required>
                         <option [ngValue]="undefined" disabled>Selecione</option>
-                        <option value="1">011</option>
-                        <option value="2">016</option>
-                        <option value="3">017</option>
-                        <option value="4">018</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
                     </select>
                     <div *ngIf="!source.valid && source.touched" class="text-danger">
                         Selecione a origem.
@@ -26,11 +26,7 @@
                     <select class="form-control" [(ngModel)]="call.destiny" #destiny="ngModel" name="destiny" id="destiny"
                     [disabled]="!source.valid" [class.is-invalid]="!destiny.valid && destiny.touched" required>
                         <option [ngValue]="undefined" disabled>Selecione</option>
-                        <option>011</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option *ngFor="let c of calls" name="c.destiny" [value]="c.destiny">{{c.destiny}}</option>
                     </select>
                     <div *ngIf="!destiny.valid && destiny.touched" class="text-danger">
                         Selecione o destino.

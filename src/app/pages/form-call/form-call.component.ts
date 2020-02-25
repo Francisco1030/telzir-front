@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 import { PlanService } from 'src/app/services/plan.service';
 import { Plan } from 'src/app/models/plan';
 import { Call } from 'src/app/models/call';
+import { CallService } from 'src/app/services/call.service';
 
 @Component({
   selector: 'app-form-call',
@@ -14,12 +14,15 @@ export class FormCallComponent implements OnInit {
   @Input() call: Call = <Call>{};
 
   plans: Plan[];
+  calls: Call[];
 
-  constructor(private planService: PlanService, private formBuilder: FormBuilder) {
+  constructor(private planService: PlanService,
+              private callService: CallService) {
     this.getAllPlans();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   getAllPlans() {
     this.planService.findAll().subscribe((plans: Plan[]) => {
@@ -29,6 +32,13 @@ export class FormCallComponent implements OnInit {
 
   onSubmit() {
     console.log(this.call);
+  }
+
+  findDestiny(event) {
+    this.callService.findBySource(event.target.value).subscribe((calls: Call[]) => {
+      this.calls = calls;
+      console.log(this.calls);
+    });
   }
 
 }
