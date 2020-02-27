@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Valores das chamadas</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body">
+        <div class="row">
+            <div class="form-group col-12">
+                <label for="name"><strong> Valor sem o plano: </strong></label>
+                <p> R$ {{ call.totalPrice }}</p>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="name"><strong> Valor com o plano: </strong></label>
+                <p> R$ {{ call.totalPricePlan }}</p>
+            </div>
+
+        </div>
+</div>

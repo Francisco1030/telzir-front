@@ -1,9 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 import { PlanService } from 'src/app/services/plan.service';
 import { Plan } from 'src/app/models/plan';
 import { Call } from 'src/app/models/call';
 import { CallService } from 'src/app/services/call.service';
+import { ModalResultComponent } from '../modal-result/modal-result.component';
 
 @Component({
   selector: 'app-form-call',
@@ -18,7 +20,8 @@ export class FormCallComponent implements OnInit {
   callsAux: Call[];
 
   constructor(private planService: PlanService,
-              private callService: CallService) {
+              private callService: CallService,
+              private modalService: NgbModal) {
     this.getAllPlans();
     this.getAllCalls();
   }
@@ -41,9 +44,15 @@ export class FormCallComponent implements OnInit {
 
   onSubmit() {
     console.log(this.call);
-    this.callService.calculatePrice(this.call).subscribe((resp) => {
-      console.table(resp);
+    this.callService.calculatePrice(this.call).subscribe((call: Call) => {
+      const modalRef = this.modalService.open(ModalResultComponent);
+      modalRef.componentInstance.call = call;
+      console.table(call);
     });
+  }
+
+  openModal() {
+    const modalRef = this.modalService.open(ModalResultComponent);
   }
 
   findDestiny(event) {

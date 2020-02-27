@@ -1,0 +1,15 @@
+.modal-content {
+    animation-name: example;
+    animation-duration: 0.3s;
+}
+
+.close {
+    outline-style: none;
+    font-size: 2.3em;
+}
+
+label, p{
+    color: #666666;
+    font-size: 17px;
+    font-weight: 400;
+  }
