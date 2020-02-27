@@ -44,12 +44,12 @@
 
                 <div class="form-group">
                     <label for="plan"> Plano</label>
-                    <select class="form-control" [(ngModel)]="call.plan" #plan="ngModel" name="plan" id="plan"
-                    [class.is-invalid]="!plan.valid && plan.touched" required>
+                    <select class="form-control" [(ngModel)]="call.planId" #planId="ngModel" name="planId" id="planId"
+                    [class.is-invalid]="!planId.valid && planId.touched" required>
                         <option [ngValue]="undefined" disabled>Selecione</option>
                         <option *ngFor="let p of plans" name="p.id" [value]="p.id">{{p.name}}</option>
                     </select>
-                    <div *ngIf="!plan.valid && plan.touched" class="text-danger">
+                    <div *ngIf="!planId.valid && planId.touched" class="text-danger">
                         Selecione o plano.
                     </div>
                 </div>

@@ -15,10 +15,12 @@ export class FormCallComponent implements OnInit {
 
   plans: Plan[];
   calls: Call[];
+  callsAux: Call[];
 
   constructor(private planService: PlanService,
               private callService: CallService) {
     this.getAllPlans();
+    this.getAllCalls();
   }
 
   ngOnInit() {
@@ -30,8 +32,18 @@ export class FormCallComponent implements OnInit {
     });
   }
 
+  getAllCalls() {
+    this.callService.findAll().subscribe((calls: Call[]) => {
+      this.callsAux = calls;
+    });
+    console.log(this.callsAux);
+  }
+
   onSubmit() {
     console.log(this.call);
+    this.callService.calculatePrice(this.call).subscribe((resp) => {
+      console.table(resp);
+    });
   }
 
   findDestiny(event) {
