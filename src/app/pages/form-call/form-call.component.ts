@@ -13,11 +13,6 @@ import { ModalResultComponent } from '../modal-result/modal-result.component';
   styleUrls: ['./form-call.component.css']
 })
 export class FormCallComponent implements OnInit {
-  @Input() call: Call = <Call>{};
-
-  plans: Plan[];
-  calls: Call[];
-  callsAux: Call[];
 
   constructor(private planService: PlanService,
               private callService: CallService,
@@ -25,6 +20,11 @@ export class FormCallComponent implements OnInit {
     this.getAllPlans();
     this.getAllCalls();
   }
+  @Input() call: Call = <Call>{};
+
+  plans: Plan[];
+  calls: Call[];
+  callsAux: Call[];
 
   ngOnInit() {
   }
@@ -46,6 +46,8 @@ export class FormCallComponent implements OnInit {
     console.log(this.call);
     this.callService.calculatePrice(this.call).subscribe((call: Call) => {
       const modalRef = this.modalService.open(ModalResultComponent);
+      //call.totalPrice.
+      //call.totalPricePlan.toLocaleString('pt-BR');
       modalRef.componentInstance.call = call;
       console.table(call);
     });
